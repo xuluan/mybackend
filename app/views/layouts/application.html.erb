@@ -8,6 +8,38 @@
 </head>
 <body>
 
+	<div class="fm-navbar">
+		<div class="fm-navbar-inner">
+				<a class="brand" href="/">MyBackEnd</a>
+
+				<ul class="fm-navbar-login">
+					<% if user_signed_in? %>
+
+					<li >
+						<%= link_to 'My Account', edit_user_registration_path %>
+					</li>
+					<li class="divider-vertical"></li>
+					<li>
+						<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+					</li>
+
+					<% else %>
+					<li>
+						<%= link_to "Sign Up", new_user_registration_path %>
+					</li>
+					<li class="divider-vertical"></li>
+					<li >
+						<%= link_to "Login", new_user_session_path %>
+					</li>
+					<li class="divider-vertical"></li>
+
+					<% end %>
+				</ul>
+		</div>
+	</div>
+
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
 <%= yield %>
 
 </body>
