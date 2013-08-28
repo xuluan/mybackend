@@ -6,7 +6,8 @@ Mybackend::Application.routes.draw do
     end
   end
 
-  devise_for :users
+  devise_for :users, controllers: { sessions: "sessions" }
+
   root :to => "magazines#index"
   resources :magazines
 
